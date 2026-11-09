@@ -77,7 +77,6 @@ tab1, tab2, tab3, tab4 = st.tabs([
 with tab1:
     st.subheader("Key Performance Indicators (KPIs)")
     
-    # KPI Columns
     kpi1, kpi2, kpi3, kpi4 = st.columns(4)
     
     total_records = len(filtered_df)
@@ -93,7 +92,7 @@ with tab1:
     st.write("---")
     
     with st.expander("📄 View Raw Dataset Sample"):
-        st.dataframe(filtered_df, use_container_width=True)
+        st.dataframe(filtered_df, width="stretch")
 
 # ----- TAB 2: DATA ANALYSIS -----
 with tab2:
@@ -105,14 +104,14 @@ with tab2:
         st.markdown("**Occupation-wise Record Counts**")
         occ_count = filtered_df["Occupation"].value_counts().reset_index()
         occ_count.columns = ["Occupation", "Record Count"]
-        st.dataframe(occ_count, use_container_width=True)
+        st.dataframe(occ_count, width="stretch")
         
     with col2:
         st.markdown("**Average Metrics by BMI Category**")
         bmi_summary = filtered_df.groupby("BMI Category")[
             ["Sleep Duration (hours)", "Quality of Sleep (scale: 1-10)", "Stress Level (scale: 1-10)"]
         ].mean().reset_index()
-        st.dataframe(bmi_summary.round(2), use_container_width=True)
+        st.dataframe(bmi_summary.round(2), width="stretch")
 
 # ----- TAB 3: VISUALIZATIONS -----
 with tab3:
@@ -129,7 +128,7 @@ with tab3:
         title="Average Sleep Duration across Occupations",
         text_auto=".2f"
     )
-    st.plotly_chart(fig_bar, use_container_width=True)
+    st.plotly_chart(fig_bar, width="stretch")
     
     # Line Chart
     st.markdown("### 2. Line Chart: Trend of Sleep Quality by Age")
@@ -141,7 +140,7 @@ with tab3:
         markers=True,
         title="Average Sleep Quality Trend Across Age Groups"
     )
-    st.plotly_chart(fig_line, use_container_width=True)
+    st.plotly_chart(fig_line, width="stretch")
     
     # Scatter Plot
     st.markdown("### 3. Scatter Plot: Physical Activity vs. Sleep Duration")
@@ -154,7 +153,7 @@ with tab3:
         hover_data=["Occupation", "Age"],
         title="Physical Activity Level vs Sleep Duration categorized by BMI"
     )
-    st.plotly_chart(fig_scatter, use_container_width=True)
+    st.plotly_chart(fig_scatter, width="stretch")
 
 # ----- TAB 4: INSIGHTS -----
 with tab4:
@@ -164,4 +163,4 @@ with tab4:
         1. **Sleep vs. Physical Activity:** Higher daily physical activity generally correlates with better sleep quality scores.
         2. **Occupational Trends:** Certain professions display variations in average sleep duration, indicating workplace lifestyle impact.
         3. **BMI Impact:** Individuals in normal weight ranges show higher average sleep duration and lower stress levels compared to overweight categories.
-        """)
+        """)git add app.py
