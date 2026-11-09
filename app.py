@@ -163,4 +163,4 @@ with tab4:
         1. **Sleep vs. Physical Activity:** Higher daily physical activity generally correlates with better sleep quality scores.
         2. **Occupational Trends:** Certain professions display variations in average sleep duration, indicating workplace lifestyle impact.
         3. **BMI Impact:** Individuals in normal weight ranges show higher average sleep duration and lower stress levels compared to overweight categories.
-        """)git add app.py
+        """)
